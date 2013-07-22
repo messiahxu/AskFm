@@ -1,0 +1,46 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.field {
+  padding-bottom: 14px;
+  label {
+    font-size: 16px;
+  }
+  input {
+    border: solid 1px #ABADB3;
+    border-radius: 5px;
+    width: 500px;
+    font-size: 16px;
+    padding: 8px 5px;
+    margin-top: 5px;
+  }
+}
+.submit {
+  input {
+    border-radius: 5px;
+    width: 250px;
+    padding: 8px 5px;
+    font-size: 16px;
+    background-color: #2C84E2;
+    color: white;
+  }
+}
+#error_explanation {
+  p {
+    width: 500px;
+    border-radius: 5px;
+    background-color: #E9BDBD;
+    margin: 15px 0;
+    padding: 5px 5px 5px 10px;
+    font-size: 16px;
+    color: #AA0606;
+  }
+  ol {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 15px;
+    color: #E93838;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,21 @@
+%h1 Sign up
+
+= form_for @user do |f|
+  = render 'shared/error_messages'
+  .field
+    %p= f.label :name
+    %p= f.text_field :name
+
+  .field
+    %p= f.label :email
+    %p= f.text_field :email
+
+  .field
+    %p= f.label :password
+    %p= f.password_field :password
+    
+  .field
+    %p= f.label :password_confirmation
+    %p= f.password_field :password_confirmation
+
+  .submit= f.submit "Create account"

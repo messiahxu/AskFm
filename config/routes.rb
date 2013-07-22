@@ -1,5 +1,8 @@
 AskFm::Application.routes.draw do
   root "static_pages#home"
+
+  get "/signup", to: "users#new"
+  resources :users, only: [:create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
