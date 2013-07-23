@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+h1 {
+  margin-left: 10px;
+}
+form {
+  margin: 10px 0 10px 10px;
+}
 .field {
   padding-bottom: 14px;
   label {
