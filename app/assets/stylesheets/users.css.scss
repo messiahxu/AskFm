@@ -2,11 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h1 {
-  //margin-left: 10px;
-}
 form {
-  //margin: 10px 0 10px 10px;
+  margin: 10px 0;
 }
 .field {
   padding-bottom: 14px;
@@ -21,16 +18,23 @@ form {
     padding: 8px 5px;
     margin-top: 5px;
   }
+  textarea {
+    border: solid 1px #ABADB3;
+    border-radius: 5px;
+    width: 500px;
+    height: 200px;
+    font-size: 16px;
+    padding: 8px 5px;
+    margin-top: 5px;
+  }
 }
 .submit {
-  input {
-    border-radius: 5px;
-    width: 250px;
-    padding: 8px 5px;
-    font-size: 16px;
-    background-color: #2C84E2;
-    color: white;
-  }
+  border-radius: 5px;
+  width: 250px;
+  padding: 8px 5px;
+  font-size: 16px;
+  background-color: #2C84E2;
+  color: white;
 }
 #error_explanation {
   p {
@@ -49,4 +53,24 @@ form {
     color: #E93838;
     font-weight: bold;
   }
+}
+// Profile
+.profile {
+ margin: 10px 0;
+  .desc {
+    margin: 10px 0;
+    span {
+      font-weight: bold;
+    }
+  }
+}
+.button {
+  background-color: #006dcc;
+  border-color: #ABADB3;
+  border-radius: 3px;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 5px 15px;
+  margin: 5px 5px 5px 0;
+  //display: inline-block;
 }

@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   before_save { self.email.downcase! }
 
   # 昵称至少3个字没什么问题吧，最长15个字差不多了吧
-  validates :name, presence: true, uniqueness: true, length: { in: 3..15 }
+  validates :name, presence: true, uniqueness: true, length: { maximum: 15 }
 
   validates :email, presence: true, uniqueness: true
 

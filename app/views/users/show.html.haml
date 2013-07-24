@@ -1,0 +1,14 @@
+%h1 Profile
+
+.profile
+  .desc
+    %span Name
+    = @user.name
+  .desc
+    %span Email
+    = @user.email
+  .desc
+    %span Bio
+    = @user.bio
+
+  = link_to "Edit", edit_user_path(@user), class: "button"

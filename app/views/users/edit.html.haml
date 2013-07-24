@@ -1,4 +1,4 @@
-%h1 Sign up
+%h1 Edit profile
 
 = form_for @user do |f|
   = render 'shared/error_messages'
@@ -22,4 +22,5 @@
     %p= f.label :bio 
     %p= f.text_area :bio 
 
-  = f.submit "Create account", class: "submit"
+  = f.submit "Update account", class: "submit"
+  = button_to "Delete", @user, method: :delete, data: { confirm: "你确定要自杀了？"}, class: "button submit"
