@@ -39,6 +39,11 @@
   background-color: #dff0d8;
   border-color: #d6e9c6;
 }
+.alert-notice {
+  color: #c09853;
+  background-color: #fcf8e3;
+  border-color: #fbeed5;
+}
 .button {
   background-color: #006dcc;
   border-color: #ABADB3;

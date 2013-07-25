@@ -1,6 +1,7 @@
 %h1 Profile
 
 .profile
+  = gravatar_for @user
   .desc
     %span Name
     = @user.name
@@ -11,4 +12,5 @@
     %span Bio
     = @user.bio
 
-  = link_to "Edit", edit_user_path(@user), class: "button"
+  - if current_user?
+    = link_to "Edit", edit_user_path(@user), class: "button"

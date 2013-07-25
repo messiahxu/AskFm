@@ -7,7 +7,8 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       sign_in(user) 
       flash[:success] = "登录成功"
-      redirect_to profile_path
+      #redirect_to user
+      redirect_back_or(user) 
     else
       flash.now[:error] = "邮箱或密码错误"
       render :new

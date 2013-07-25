@@ -4,6 +4,12 @@
 
 form {
   margin: 10px 0;
+  .gravatar {
+    float: right;
+    height: 200px;
+    width: 200px;
+    margin-right: 100px;
+  }
 }
 .field {
   padding-bottom: 14px;

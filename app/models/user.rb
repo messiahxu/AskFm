@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
 
   # 加密权标
   def User.encrypt(token)
+    # 这里 token 一定要转成字符串，否则不晓得什么时候就会出问题
     Digest::SHA1.hexdigest(token.to_s)
   end
 

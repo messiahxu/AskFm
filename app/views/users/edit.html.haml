@@ -1,6 +1,7 @@
 %h1 Edit profile
 
 = form_for @user do |f|
+  = gravatar_for(@user)
   = render 'shared/error_messages'
   .field
     %p= f.label :name

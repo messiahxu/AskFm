@@ -1,4 +1,11 @@
 class UsersController < ApplicationController
+  before_action :signed_in_user?, only: [:edit, :update]
+  before_action :correct_user?, only: [:edit, :update]
+
+  def index
+    @users = User.page(params[:page])
+  end
+
   def new
     @user = User.new
   end
@@ -15,11 +22,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if signed_in?
-      @user = current_user
-    else
-      @user = User.find(params[:id])
-    end
+    @user = User.find(params[:id])
   end
 
   def edit
@@ -45,4 +48,18 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :bio, :password, :password_confirmation)
   end
+  
+  def signed_in_user?
+    unless signed_in?
+      set_location
+      redirect_to signin_path, notice: "请登录先"
+    end
+  end
+
+  def correct_user?
+    unless current_user?
+      redirect_to root_path, notice: "不要干坏事哦"
+    end
+  end
+
 end
