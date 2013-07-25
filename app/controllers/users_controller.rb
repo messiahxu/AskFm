@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = "注册成功"
       sign_in(@user)
-      redirect_to @user
+      redirect_to profile_path
     else
       render :new
     end
