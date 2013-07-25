@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :correct_user?, only: [:edit, :update]
 
   def index
-    @users = User.page(params[:page])
+    @users = User.all.page(params[:page])
   end
 
   def new
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = "注册成功"
       sign_in(@user)
-      redirect_to profile_path
+      redirect_to @user
     else
       render :new
     end
