@@ -4,6 +4,11 @@ AskFm::Application.routes.draw do
   get "/signup", to: "users#new"
   get "/profile", to: "users#show"
   resources :users, only: [:create, :show, :edit, :update, :destroy]
+
+  get "/login", "/signin", to: "sessions#new"
+  resources :sessions, only: [:create, :destroy]
+  delete "/logout", "/signout", to: "sessions#destroy"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

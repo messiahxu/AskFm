@@ -5,5 +5,8 @@
       %li= link_to "Home", root_path
       %li= link_to "help", "#"
       %li= link_to "About", "#"
-      %li= link_to "Sign in", "#"
-      %li= link_to "Sign up", signup_path
+      - if signed_in?
+        %li= link_to "Sign out", signout_path, method: :delete
+      - else 
+        %li= link_to "Sign in", signin_path 
+        %li= link_to "Sign up", signup_path

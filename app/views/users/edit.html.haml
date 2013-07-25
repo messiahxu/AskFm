@@ -23,4 +23,5 @@
     %p= f.text_area :bio 
 
   = f.submit "Update account", class: "submit"
-  = button_to "Delete", @user, method: :delete, data: { confirm: "你确定要自杀了？"}, class: "button submit"
+
+= button_to "Delete", @user, method: :delete, data: { confirm: "你确定要自杀了？"}, class: "button submit"

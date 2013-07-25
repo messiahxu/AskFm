@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   before_save { self.email.downcase! }
+  before_create :create_remember_token
 
   # 昵称至少3个字没什么问题吧，最长15个字差不多了吧
   validates :name, presence: true, uniqueness: true, length: { maximum: 15 }
@@ -16,4 +17,19 @@ class User < ActiveRecord::Base
   has_secure_password
 
   validates :password, length: { in: 6..30 }
+
+  # 生成未加密的权标
+  def User.new_remember_token
+    SecureRandom.urlsafe_base64
+  end
+
+  # 加密权标
+  def User.encrypt(token)
+    Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  private
+    def create_remember_token
+      self.remember_token = User.encrypt(User.new_remember_token)
+    end
 end

@@ -23,3 +23,35 @@
   border: solid black;
   border-radius: 10px;
 }
+.alert {
+  margin-bottom: 5px;
+  padding: 8px 35px 8px 14px;
+  border: 1px solid #fbeed5;
+  border-radius: 5px;
+}
+.alert-error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+.alert-success {
+  color: #468847;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.button {
+  background-color: #006dcc;
+  border-color: #ABADB3;
+  border-radius: 3px;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 5px 15px;
+  margin: 5px 5px 5px 0;
+  display: inline-block;
+}
+.button-large {
+  font-size: 18px;
+  margin: 20px 0;
+  padding: 11px 19px;
+  border-radius: 6px;
+}

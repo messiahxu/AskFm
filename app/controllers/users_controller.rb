@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:success] = "注册成功"
+      sign_in(@user)
       redirect_to @user
     else
       render :new
@@ -13,7 +15,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    if signed_in?
+      @user = current_user
+    else
+      @user = User.find(params[:id])
+    end
   end
 
   def edit
