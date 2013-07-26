@@ -17,6 +17,7 @@
 }
 
 .container {
+  display: block;
   margin: 10px auto;
   padding: 20px;
   width: 940px;

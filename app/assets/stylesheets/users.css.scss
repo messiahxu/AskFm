@@ -70,3 +70,22 @@ form {
     }
   }
 }
+// Index
+.users-list {
+  margin: 20px auto;
+}
+.user {
+  margin: 10px 10px 10px 10px;
+  text-align: top;
+  //width: 150px;
+  font-size: 30px;
+  img {
+  }
+  a {
+    text-decoration: none;
+  }
+  //.delete {
+  //  float: right;
+  //  clear: both;
+  //}
+}

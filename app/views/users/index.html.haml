@@ -1,3 +1,10 @@
-%h1 Users
+%h1 All users
 
 = paginate @users
+.users-list
+  - @users.each do |user|
+    .user
+      = link_to gravatar_for(user), user
+      = link_to user.name, user
+      -#= user.bio
+      = link_to "删除", user, method: :delete, data: { confirm: "确定要删除？"}, class: "delete"
