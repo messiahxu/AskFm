@@ -6,5 +6,5 @@
     .user
       = link_to gravatar_for(user), user
       = link_to user.name, user
-      -#= user.bio
-      = link_to "删除", user, method: :delete, data: { confirm: "确定要删除？"}, class: "delete"
+      - if signed_in? && current_user.admin?
+        = link_to "删除", user, method: :delete, data: { confirm: "确定要删除？"}, class: "delete"

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user?, only: [:edit, :update]
-  before_action :correct_user?, only: [:edit, :update]
+  before_action :signed_in_user?, only: [:index, :edit, :update, :destroy]
+  before_action :correct_user?, only: [:edit, :update, :destroy]
 
   def index
     #@users = User.all
@@ -41,8 +41,12 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-    redirect_to root_path
+    if @user.admin?
+      redirect_to root_path, notice: "怎么？管理员内讧了？"
+    else
+      @user.destroy
+      redirect_to root_path
+    end
   end
 
   private
@@ -58,9 +62,14 @@ class UsersController < ApplicationController
   end
 
   def correct_user?
-    unless current_user?
+    #unless current_user?
+    #  redirect_to root_path, notice: "不要干坏事哦"
+    #end
+    # 只有管理员可以删除用户，当前用户只可以删除自己，
+    unless current_user? || current_user.admin?
       redirect_to root_path, notice: "不要干坏事哦"
     end
   end
+
 
 end
