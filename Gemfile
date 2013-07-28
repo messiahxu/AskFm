@@ -9,6 +9,7 @@ gem 'kaminari'
 # Use sqlite3 as the database for Active Record
 group :development do
   gem 'sqlite3'
+  gem 'pry-rails'
 end
 
 # Use SCSS for stylesheets
