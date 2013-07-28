@@ -73,19 +73,31 @@ form {
 // Index
 .users-list {
   margin: 20px auto;
-}
-.user {
-  margin: 10px 10px 10px 10px;
-  text-align: top;
-  //width: 150px;
-  font-size: 30px;
-  img {
+  .user-by-admin {
+    margin: 10px;
+    font-size: 30px;
+    img{
+    }
+    a {
+      text-decoration: none;
+    }
   }
-  a {
-    text-decoration: none;
+  .user {
+    margin: 10px 20px 0 0;
+    width: 70px;
+    display: inline-block;
+    font-size: 12px;
+    text-align: center;
+    img {
+      display: block;
+      text-align: center;
+      width: 70px;
+      height: 70px;
+    }
+    a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+    }
   }
-  //.delete {
-  //  float: right;
-  //  clear: both;
-  //}
 }

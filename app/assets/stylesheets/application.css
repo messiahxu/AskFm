@@ -61,3 +61,14 @@
   padding: 11px 19px;
   border-radius: 6px;
 }
+
+/* pagination */
+.pagination {
+  font-size: 30px;
+  width: 50%;
+  margin: 0 auto;
+}
+.pagination a {
+  text-decoration: none;
+  font-size: 30px;
+}

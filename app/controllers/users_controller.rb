@@ -3,8 +3,11 @@ class UsersController < ApplicationController
   before_action :correct_user?, only: [:edit, :update, :destroy]
 
   def index
-    #@users = User.all
-    @users = User.order(:id).page(params[:page]).per(5)
+    if current_user.admin?
+      @users = User.page(params[:page]).per(10)
+    else
+      @users = User.page(params[:page]).per(100)
+    end
   end
 
   def new
