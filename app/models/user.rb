@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
 
   validates :password, length: { in: 6..30 }
 
+  has_many :questions
+
   # 生成未加密的权标
   def User.new_remember_token
     SecureRandom.urlsafe_base64
