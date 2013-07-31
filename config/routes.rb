@@ -3,7 +3,9 @@ AskFm::Application.routes.draw do
 
   get "/signup", to: "users#new"
   get "/profile", to: "users#show"
-  resources :users, only: [:index, :create, :show, :edit, :update, :destroy]
+  resources :users, only: [:index, :create, :show, :edit, :update, :destroy] do
+    resources :questions, only: [:create]
+  end
 
   get "/login", "/signin", to: "sessions#new"
   resources :sessions, only: [:create, :destroy]

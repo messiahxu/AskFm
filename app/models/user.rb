@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: true
 
-  # bio 250个字还不够？你要写自传吗？
-  validates :bio, length: { maximum: 250 }
+  # bio 200个字还不够？你要写自传吗？
+  validates :bio, length: { maximum: 200 }
 
   # 一下这行生成了虚拟的 pasword 和 password_confirmation 属性，
   # 并且验证了添加了这两个属性的 presence 和相等于否

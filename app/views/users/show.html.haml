@@ -1,16 +1,42 @@
-%h1 Profile
+//%h1 Profile
 
 .profile
-  = gravatar_for @user
-  .desc
-    %span Name
-    = @user.name
-  .desc
-    %span Email
-    = @user.email
-  .desc
-    %span Bio
-    = @user.bio
+  .private
+    = gravatar_for @user
+    - if current_user?
+      = link_to "Edit", edit_user_path(@user), class: "button"
 
-  - if current_user?
-    = link_to "Edit", edit_user_path(@user), class: "button"
+  .desc
+    .info
+      .name= link_to @user.name, @user
+      //.email= @user.email
+      .bio= @user.bio
+
+    .statistic
+      %a.box{href: "#"}
+        %span.counter= "00" 
+        %span= "礼物"
+      %a.box{href: "#"}
+        %span.counter= "00"
+        %span= "好评"
+      %a.box{href: user_path(@user)}
+        %span.counter= "00"
+        %span= "回答"
+
+
+- if signed_in?
+  .ask
+    %strong 向我提问
+    = form_for [@user, @user.questions.new] do |f|
+      = f.text_area :content
+      .post
+        .counter= 200
+        = f.submit "Ask", class: "button"
+
+%strong 收到的问题
+.questions-list
+  - @questions.each do |question|
+    .question
+      .content= question.content 
+      = link_to owner_of(question).name, user_path(owner_of(question))
+      .date #{time_ago_in_words question.created_at}

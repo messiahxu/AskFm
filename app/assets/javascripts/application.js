@@ -14,3 +14,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+  $("#question_content").keyup(function(){
+    var maxLength = 200;
+    var length = $(this).val().length;
+    var rest = $(".post .counter").text(maxLength - length);
+    if (rest.text() <= 0) {
+      $(".post .button").attr("disabled", "disabled").addClass("disabled");
+      var keep = $(this).val().slice(0, 200);
+      $(this).val(keep);
+    }
+  });
+});

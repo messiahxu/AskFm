@@ -1,3 +1,66 @@
 // Place all the styles related to the Questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.questions-list {
+  margin: 20px 0;
+  a {
+    text-decoration: none;
+    color: #3081A3;
+    &:hover {
+      text-decoration: underline;
+      color: #3081A3;
+    }
+  }
+  .question {
+    .content {
+      display: inline;
+      font-weight: bold;
+      margin-right: 20px;
+    }
+    .date {
+      font-weight: normal;
+      color: #808080;
+    }
+  }
+}
+
+.ask {
+  margin-right: 10px;
+  //min-height: 290px;
+  strong {font-size: 25px;}
+  textarea {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    min-height: 36px;
+    padding: 5px;
+    resize: none;
+    border: solid 1px #CCCCCC;
+    border-radius: 5px 5px 0 0;
+    font-size: 14px;
+  }
+  .post {
+    width: 100%;
+    padding-right: 10px;
+    border: solid 1px #CCCCCC;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    height: 36px;
+    .counter {
+      float: left;
+      margin: 10px;
+      color: #999999;
+    }
+    .button {
+      float: right;
+      background-color: #37C8FF;
+      border: none;
+      font-weight: bold;
+    }
+    .disabled {
+      background-color: #ABADB3;
+    }
+  }
+}
+
