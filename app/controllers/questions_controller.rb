@@ -21,6 +21,10 @@ class QuestionsController < ApplicationController
   def reply
     # @user = current_user
     @question = Question.find(params[:id])
+    if @question.replied?
+      flash[:notice] = "那个问题已经回答过咯"
+      redirect_to root_path
+    end
     @answer = @question.build_answer
   end
 

@@ -5,6 +5,7 @@ ruby '2.0.0'
 gem 'rails', '4.0.0'
 gem 'haml'
 gem 'kaminari'
+gem 'jquery-turbolinks'
 
 # Use sqlite3 as the database for Active Record
 group :development do
