@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
 
   def need_to_answer
     # 这个 action 是列出用户收到的问题
-    @questions = Question.where(receiver_id: current_user.id)
+    @questions = Question.where(receiver_id: current_user.id, replied: false)
   end
 
   def create

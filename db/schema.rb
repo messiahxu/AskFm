@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130731194104) do
+ActiveRecord::Schema.define(version: 20130801020516) do
 
   create_table "answers", force: true do |t|
     t.string   "content"
@@ -30,9 +30,11 @@ ActiveRecord::Schema.define(version: 20130731194104) do
     t.integer  "receiver_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "replied",     default: false
   end
 
   add_index "questions", ["receiver_id"], name: "index_questions_on_receiver_id"
+  add_index "questions", ["replied"], name: "index_questions_on_replied"
   add_index "questions", ["user_id"], name: "index_questions_on_user_id"
 
   create_table "users", force: true do |t|

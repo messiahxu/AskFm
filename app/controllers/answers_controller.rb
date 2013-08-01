@@ -5,6 +5,7 @@ class AnswersController < ApplicationController
                                      user_id: current_user.id
                                     )
     if @answer.save
+      @question.update_attribute(:replied, true)
       redirect_to need_to_answer_path
     else
       flash[:notice] = "答案好像被抓走了……"
