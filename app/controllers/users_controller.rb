@@ -58,12 +58,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :bio, :password, :password_confirmation)
   end
   
-  def signed_in_user?
-    unless signed_in?
-      set_location
-      redirect_to signin_path, notice: "请登录先"
-    end
-  end
 
   def correct_user?
     #unless current_user?

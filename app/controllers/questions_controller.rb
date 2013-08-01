@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   before_action :signed_in_user?, only: [:index, :need_to_answer, :reply, :create]
   def index
     # 这个 action 是列出用户提出的问题
-    @questions = current_user.questions
+    @questions = current_user.questions.page(params[:page]).per(20)
   end
 
   def need_to_answer
@@ -28,11 +28,4 @@ class QuestionsController < ApplicationController
     @answer = @question.build_answer
   end
 
-  private
-    def signed_in_user?
-      unless signed_in?
-        set_location
-        redirect_to signin_path, notice: "请登录先"
-      end
-    end
 end

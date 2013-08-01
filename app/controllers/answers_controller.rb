@@ -13,7 +13,4 @@ class AnswersController < ApplicationController
     end
   end
 
-  private
-    def signed_in_user?
-    end
 end

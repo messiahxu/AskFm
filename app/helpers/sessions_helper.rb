@@ -44,4 +44,12 @@ module SessionsHelper
     redirect_to(session[:return_to] || default)
     session.delete(:return_to)
   end
+
+  def signed_in_user?
+    unless signed_in?
+      set_location
+      redirect_to signin_path, notice: "请登录先"
+    end
+  end
+
 end

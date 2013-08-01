@@ -8,6 +8,7 @@
 #  receiver_id :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  replied     :boolean          default(FALSE)
 #
 
 class Question < ActiveRecord::Base
