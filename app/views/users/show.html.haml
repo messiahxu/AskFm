@@ -3,8 +3,6 @@
 .profile
   .private
     = gravatar_for @user
-    - if current_user?
-      = link_to "Edit", edit_user_path(@user), class: "button"
 
   .desc
     .info
@@ -14,13 +12,13 @@
 
     .statistic
       %a.box{href: "#"}
-        %span.counter= "00" 
+        %span.counter= "xx" 
         %span= "礼物"
       %a.box{href: "#"}
-        %span.counter= "00"
+        %span.counter= "xx"
         %span= "好评"
       %a.box{href: user_path(@user)}
-        %span.counter= "00"
+        %span.counter= User.find(params[:id]).answers.size
         %span= "回答"
 
 

@@ -16,7 +16,7 @@
 //= require_tree .
 
 $(function(){
-  $("#question_content").keyup(function(){
+  function checkLength() {
     var maxLength = 200;
     var length = $(this).val().length;
     var rest = $(".post .counter").text(maxLength - length);
@@ -25,5 +25,7 @@ $(function(){
       var keep = $(this).val().slice(0, 200);
       $(this).val(keep);
     }
-  });
+  };
+  $("#question_content").keyup(checkLength);
+  $("#answer_content").keyup(checkLength);
 });

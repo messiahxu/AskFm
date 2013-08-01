@@ -1,23 +1,63 @@
 // 导航栏
 
 header {
-  padding: 0 10px;
-  background-color: black;
-  a {
-    text-decoration: none;
-    color: #ddd;
-  }
+  background: #000000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   nav {
-    background-color: black;
-    width: 940px;
+    position: relative;
     margin: 0 auto;
-    padding: 8px 0;
+    width: 940px;
+    font-size: 16px;
+    max-height: 40px;
+    a.logo {
+      float: left;
+      color: #ffffff;
+      line-height: 40px;
+    }
     ul.pull_right {
-      list-style: none;
       float: right;
+      list-style: none;
+      line-height: 40px;
       li {
         display: inline-block;
-        padding: 0 5px;
+        height: 40px;
+        width: 50px;
+        text-align: center;
+        a {
+          color: #ffffff;
+        }
+      }
+      li.toggle_drop_down {
+        text-align: center;
+        a {
+          display: block;
+        }
+        ul.drop_down {
+          display: none;
+          background-color: #000000;
+        }
+        &:hover {
+          ul.drop_down {
+            display: block;
+            float: left;
+            margin: 0;
+            padding: 0;
+            border-radius: 0 0 5px 5px;
+            li {
+              display: block;
+              line-height: 40px;
+              width: 100px;
+              a {
+                &:hover {
+                  color: #30a67c;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -6,4 +6,5 @@
   = form_for [@question, @answer] do |f|
     = f.text_area :content
     .post
+      .counter= 200
       = f.submit "回答", class: "button"
