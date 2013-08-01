@@ -1,16 +1,31 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  email           :string(255)
+#  password_digest :string(255)
+#  bio             :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#  remember_token  :string(255)
+#  admin           :boolean          default(FALSE)
+#
+
 class User < ActiveRecord::Base
   before_save { self.email.downcase! }
   before_create :create_remember_token
 
-  # 昵称至少3个字没什么问题吧，最长15个字差不多了吧
+  # 昵称最长15个字差不多了吧
   validates :name, presence: true, uniqueness: true, length: { maximum: 15 }
 
   validates :email, presence: true, uniqueness: true
 
-  # bio 200个字还不够？你要写自传吗？
-  validates :bio, length: { maximum: 200 }
+  # bio 150个字还不够？你要写自传吗？
+  validates :bio, length: { maximum: 150 }
 
-  # 一下这行生成了虚拟的 pasword 和 password_confirmation 属性，
+  # 这行生成了虚拟的 pasword 和 password_confirmation 属性，
   # 并且验证了添加了这两个属性的 presence 和相等于否
   # 之后把 password 加密存为 password_digest 属性
   # 还添加了一个 authenticate 方法用于登录，真是神迹啊！
@@ -18,7 +33,8 @@ class User < ActiveRecord::Base
 
   validates :password, length: { in: 6..30 }
 
-  has_many :questions
+  has_many :questions, dependent: :destroy
+  has_many :answers, dependent: :destroy
 
   # 生成未加密的权标
   def User.new_remember_token

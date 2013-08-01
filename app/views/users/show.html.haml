@@ -33,10 +33,13 @@
         .counter= 200
         = f.submit "Ask", class: "button"
 
-%strong 收到的问题
-.questions-list
-  - @questions.each do |question|
-    .question
-      .content= question.content 
-      = link_to owner_of(question).name, user_path(owner_of(question))
-      .date #{time_ago_in_words question.created_at}
+.answers-list
+  %strong 回答
+  .answers
+    - @answers.each do |answer|
+      .answer
+        .question_content= answer.question.content
+        = link_to owner_of(answer.question).name, user_path(owner_of(answer.question))
+        .answer_content= answer.content
+        .date= time_ago_in_words answer.created_at
+

@@ -1,11 +1,22 @@
 AskFm::Application.routes.draw do
   root "static_pages#home"
+  # 这是列出用户提出的问题
+  # get "/questions", to: "questions#index"
 
   get "/signup", to: "users#new"
   get "/profile", to: "users#show"
   resources :users, only: [:index, :create, :show, :edit, :update, :destroy] do
     resources :questions, only: [:create]
+    # get "/need-to-answer", to: "questions#need_to_answer"
   end
+  resources :questions, only: [:index] do
+    resources :answers, only: [:create]
+    collection do
+    end
+  end
+  # 这是列出用户收到的问题
+  get "/need-to-answer", to: "questions#need_to_answer", as: "need_to_answer"
+  get "/questions/:id/reply", to: "questions#reply", as: "reply"
 
   get "/login", "/signin", to: "sessions#new"
   resources :sessions, only: [:create, :destroy]

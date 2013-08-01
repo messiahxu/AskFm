@@ -2,6 +2,54 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.questions {
+  margin: 20px 0;
+  a.name {
+    color: #3081A3;
+    font-size: 18px;
+    &:hover {
+      text-decoration: underline;
+      color: #3081A3;
+    }
+  }
+  .date {
+    display: inline;
+    color: #808080;
+    font-size: 12px;
+  }
+  .content {
+    margin: 5px 0 10px 0;
+  }
+}
+.need_to_answer {
+  margin: 20px 0;
+  .question {
+    margin-bottom: 10px;
+  }
+  .date {
+    font-weight: normal;
+    color: #808080;
+  }
+  .content {
+    display: inline;
+    font-weight: bold;
+    padding-right: 10px;
+  }
+  a.name {
+    color: #3081A3;
+    &:hover {
+      text-decoration: underline;
+      color: #3081A3;
+    }
+  }
+  a.reply {
+    color: #3081A3;
+    &:hover {
+      text-decoration: underline;
+      color: #3081A3;
+    }
+  }
+}
 .questions-list {
   margin: 20px 0;
   a {

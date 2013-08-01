@@ -1,0 +1,9 @@
+%h1 问题
+
+.reply
+  = @question.content
+  
+  = form_for [@question, @answer] do |f|
+    = f.text_area :content
+    .post
+      = f.submit "回答", class: "button"

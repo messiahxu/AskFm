@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @questions = Question.where(receiver_id: params[:id]).order("created_at DESC")
+    @answers = Answer.where(user_id: params[:id])
   end
 
   def edit

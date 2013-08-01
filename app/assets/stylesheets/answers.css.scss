@@ -1,0 +1,36 @@
+// Place all the styles related to the answers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.answers-list {
+  strong { 
+    font-size: 25px; 
+  }
+  .answers {
+    margin: 20px 0;
+    .answer {
+      margin: 10px 0;
+      .question_content {
+        display: inline;
+        font-weight: bold;
+        margin-right: 10px;
+      }
+      a {
+        display: inline;
+        color: #3081A3;
+        &:hover {
+          text-decoration: underline;
+          color: #3081A3;
+        }
+      }
+      .answer_content {
+        margin: 8px 0 5px 0;
+      }
+      .date {
+        font-weight: normal;
+        color: #808080;
+        font-size: 12px;
+      }
+    }
+  }
+}

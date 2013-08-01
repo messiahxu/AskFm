@@ -1,0 +1,9 @@
+%h1 问题
+
+.questions
+  - @questions.each do |question|
+    .question
+      To: 
+      = link_to receiver_of(question).name, user_path(receiver_of(question)), class: "name"
+      .date= time_ago_in_words question.created_at
+      .content= question.content
