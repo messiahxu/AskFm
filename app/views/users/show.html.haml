@@ -12,10 +12,10 @@
 
     .statistic
       %a.box{href: followers_user_path(@user)}
-        %span.counter= @user.followers.count 
+        %span.counter#followers= @user.followers.count 
         %span= "粉丝"
       %a.box{href: following_user_path(@user)}
-        %span.counter#followers= @user.followed_users.count
+        %span.counter= @user.followed_users.count
         %span= "关注"
       %a.box{href: user_path(@user)}
         %span.counter= @user.answers.count
