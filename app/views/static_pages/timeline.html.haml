@@ -1,0 +1,18 @@
+%h1 时间线
+
+.timeline
+  .answers-list
+    .answers
+      - @feed_items.each do |answer|
+        .answer
+          = gravatar_for(owner_of(answer))
+          .box
+            .content
+              .question_content= answer.question.content
+              = link_to owner_of(answer.question).name, user_path(owner_of(answer.question))
+              .answer_content= answer.content
+              .date= time_ago_in_words answer.created_at
+              = link_to owner_of(answer).name, user_path(owner_of(answer))
+
+
+= paginate @feed_items

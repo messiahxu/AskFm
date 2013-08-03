@@ -1,9 +1,9 @@
 module QuestionsHelper
-  def owner_of(question)
-    User.find(question.user_id)
+  def owner_of(item)
+    User.find(item.user_id)
   end
 
-  def receiver_of(question)
-    User.find(question.receiver_id)
+  def receiver_of(item)
+    User.find(item.receiver_id)
   end
 end
