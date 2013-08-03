@@ -11,7 +11,7 @@
         //%li= link_to "NeedToAnswer", need_to_answer_path
         //%li= link_to "Sign out", signout_path, method: :delete
         %li.toggle_drop_down
-          %a{href: "#"}= current_user.name
+          %a{href: "#", title: current_user.name}= current_user.name[0...3]+'...'
           %ul.drop_down
             %li= link_to "个人页面", user_path(current_user)
             %Li= link_to "修改资料", edit_user_path(current_user)
