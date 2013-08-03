@@ -22,14 +22,14 @@ $(function(){
   function checkLength() {
     var maxLength = 200;
     var length = $(this).val().length;
-    var rest = $(".post .counter").text(maxLength - length);
-    if (rest.text() < 0) {
+    $(".post .counter").text(maxLength - length);
+    if ( length == 0 || length > 200) {
       $(".post .button").attr("disabled", "disabled").addClass("disabled");
       //var keep = $(this).val().slice(0, 200);
       //$(this).val(keep);
     }
     else {
-      $(".post .button").removeClass("disabled");
+      $(".post .button").removeAttr("disabled").removeClass("disabled");
     }
   };
 });

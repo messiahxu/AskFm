@@ -1,7 +1,7 @@
 %h1 Need To Answer
 
 .need_to_answer
-  - @questions.each do |question|
+  - @receive_questions.each do |question|
     .question
       .content= question.content
       = link_to owner_of(question).name, user_path(owner_of(question)), class: "name"
