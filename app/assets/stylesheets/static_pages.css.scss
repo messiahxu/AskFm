@@ -2,3 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.timeline {
+  .answer {
+    display: block;
+    margin-bottom: 20px;
+    min-height: 80px;
+    .gravatar{
+      float: left;
+      margin-right: 10px;
+      height: 70px;
+    }
+    .box {
+      float: right;
+      width: 860px;
+      .content {
+        float: left;
+        min-height: 70px;
+        .date {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
