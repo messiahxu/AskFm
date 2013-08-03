@@ -27,7 +27,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @answers = Answer.where(user_id: params[:id])
+    #@answers = Answer.where(user_id: params[:id])
+    @answers = @user.answers
   end
 
   def edit
@@ -51,6 +52,16 @@ class UsersController < ApplicationController
       @user.destroy
       redirect_to root_path
     end
+  end
+
+  def following
+    @user = User.find(params[:id])
+    @followed_users = @user.followed_users.page(params[:page]).per(20)
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @followers = @user.followers.page(params[:page]).per(20)
   end
 
   private

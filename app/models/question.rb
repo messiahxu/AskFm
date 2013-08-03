@@ -16,5 +16,7 @@ class Question < ActiveRecord::Base
   validates :user_id, presence: true
   validates :receiver_id, presence: true
   belongs_to :user
+  #belongs_to :sender, class_name: "User", foreign_key: "user_id"
+  #belongs_to :receiver, class_name: "User"
   has_one :answer, dependent: :destroy
 end

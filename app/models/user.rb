@@ -33,8 +33,30 @@ class User < ActiveRecord::Base
 
   validates :password, length: { in: 6..30 }
 
-  has_many :questions, dependent: :destroy
+  # has_many :questions, dependent: :destroy
+  has_many :questions, foreign_key: "user_id", dependent: :destroy
+  has_many :receive_questions, foreign_key: "receiver_id", class_name: "Question", dependent: :destroy
+
+
   has_many :answers, dependent: :destroy
+
+  # relationships
+  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+  has_many :followed_users, through: :relationships, source: :followed
+  has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
+  has_many :followers, through: :reverse_relationships, source: :follower
+
+  def following?(other_user)
+    self.followed_users.find_by(id: other_user.id)
+  end
+
+  def follow!(other_user)
+    self.relationships.create!(followed_id: other_user.id)
+  end
+
+  def unfollow!(other_user)
+    self.relationships.find_by(followed_id: other_user.id).destroy
+  end
 
   # 生成未加密的权标
   def User.new_remember_token

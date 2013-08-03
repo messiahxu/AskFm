@@ -3,12 +3,20 @@ AskFm::Application.routes.draw do
   # 这是列出用户提出的问题
   # get "/questions", to: "questions#index"
 
+  get "/timeline", to: "static_pages#timeline"
+
   get "/signup", to: "users#new"
-  get "/profile", to: "users#show"
+  # get "/profile", to: "users#show"
   resources :users, only: [:index, :create, :show, :edit, :update, :destroy] do
+    member do
+      get :following, :followers
+    end
     resources :questions, only: [:create]
     # get "/need-to-answer", to: "questions#need_to_answer"
   end
+
+  resources :relationships, only: [:create, :destroy]
+
   resources :questions, only: [:index] do
     resources :answers, only: [:create]
     collection do

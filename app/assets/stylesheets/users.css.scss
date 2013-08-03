@@ -131,6 +131,26 @@ form {
         }
       }
       span {display: block;}
+      .follow {
+        width: 100px;
+        margin: 10px;
+        padding: 5px 0;
+        background-color: #37C8FF;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      .unfollow {
+        width: 100px;
+        margin: 10px;
+        padding: 5px 0;
+        background-color: #DF2323;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+      }
     }
   }
 }
