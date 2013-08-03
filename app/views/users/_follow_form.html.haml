@@ -1,6 +1,13 @@
 - if signed_in?
   #follow_form
+    //= action_name
+    //- if action_name == 'show'
     - if current_user.following?(@user)
       = render 'unfollow'
     - else
       = render 'follow'
+    //- else
+    //  - if current_user.following?(user)
+    //    = render 'unfollow'
+    //  - else
+    //    = render 'follow'

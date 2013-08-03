@@ -1,0 +1,21 @@
+%h1 粉丝列表(能换个名字吗)
+
+.followed_users_or_followers
+  - @followers.each do |user|
+    .user
+      %a{href: user_path(user)}
+        = gravatar_for user
+      .desc
+        .info
+          .name= link_to user.name, user_path(user)
+          .counter= "回答: #{user.answers.count}"
+          .bio= user.bio
+        //= render partial: 'follow_form', locals: { user: user } if signed_in?
+        #follow_form
+          - if current_user.following?(user)
+            = form_for current_user.relationships.find_by(followed_id: user.id), html: { method: :delete }, remote: true do |f|
+              = f.submit "取消关注", class: "unfollow"
+          - else
+            = form_for current_user.relationships.new(followed_id: user.id), remote: true do |f|
+              = f.hidden_field :followed_id
+              = f.submit "关注", class: "follow"
