@@ -11,15 +11,16 @@
       .bio= @user.bio
 
     .statistic
-      %a.box{href: "#"}
-        %span.counter= "xx" 
-        %span= "礼物"
-      %a.box{href: "#"}
-        %span.counter= "xx"
-        %span= "好评"
+      %a.box{href: followers_user_path(@user)}
+        %span.counter= @user.followers.count 
+        %span= "粉丝"
+      %a.box{href: following_user_path(@user)}
+        %span.counter#followers= @user.followed_users.count
+        %span= "关注"
       %a.box{href: user_path(@user)}
-        %span.counter= User.find(params[:id]).answers.size
+        %span.counter= @user.answers.count
         %span= "回答"
+      = render 'follow_form' if signed_in? && current_user != @user
 
 
 - if signed_in?
@@ -29,7 +30,7 @@
       = f.text_area :content
       .post
         .counter= 200
-        = f.submit "Ask", class: "button"
+        = f.submit "Ask", class: "button disabled", disabled: "disabled"
 
 .answers-list
   %strong 回答
