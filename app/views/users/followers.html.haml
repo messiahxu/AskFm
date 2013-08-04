@@ -10,11 +10,12 @@
           .name= link_to user.name, user_path(user)
           .counter= "回答: #{user.answers.count}"
           .bio= user.bio
-        .follow_form
-          - if current_user == user
-            %button.follow.nothing 这是你自己
-          - else
-            - if current_user.following?(user)
-              %button.unfollow 取消关注
+        - if signed_in?
+          .follow_form
+            - if current_user == user
+              %button.follow.nothing 这是你自己
             - else
-              %button.follow 关注
+              - if current_user.following?(user)
+                %button.unfollow 取消关注
+              - else
+                %button.follow 关注
