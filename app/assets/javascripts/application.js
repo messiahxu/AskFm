@@ -19,6 +19,13 @@
 $(function(){
   $("#question_content").on("keyup keydown mouseleave", checkLength);
   $("#answer_content").on("keyup keydown mouseleave", checkLength);
+  //$(".follow_form button.follow").on("click", follow);
+  //var follow = function() {
+  //  var id = $(this).parents(".desc").prev().attr("href").split('/').pop;
+  //  $.ajax({
+  //    url: "/relationships/" + id
+  //  });
+  //};
   function checkLength() {
     var maxLength = 200;
     var length = $(this).val().length;

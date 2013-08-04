@@ -8,6 +8,19 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def help
+  end
+
+  def about
+  end
+
+  def popular
+  end
+
+  def latest
+    @answers = Answer.order(created_at: :desc).page(params[:page]).per(20)
+  end
+
   def timeline
     feeds
   end

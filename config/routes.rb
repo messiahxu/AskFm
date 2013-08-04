@@ -4,6 +4,9 @@ AskFm::Application.routes.draw do
   # get "/questions", to: "questions#index"
 
   get "/timeline", to: "static_pages#timeline"
+  get "/help", to: "static_pages#help"
+  get "/about", to: "static_pages#about"
+  get "/latest", to: "static_pages#latest"
 
   get "/signup", to: "users#new"
   # get "/profile", to: "users#show"
