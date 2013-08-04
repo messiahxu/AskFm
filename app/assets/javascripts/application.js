@@ -17,8 +17,8 @@
 //= require_tree .
 
 $(function(){
-  $("#question_content").keyup(checkLength);
-  $("#answer_content").keyup(checkLength);
+  $("#question_content").on("keyup keydown mouseleave", checkLength);
+  $("#answer_content").on("keyup keydown mouseleave", checkLength);
   function checkLength() {
     var maxLength = 200;
     var length = $(this).val().length;
