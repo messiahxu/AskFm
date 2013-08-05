@@ -37,6 +37,8 @@ class User < ActiveRecord::Base
   has_many :questions, foreign_key: "user_id", dependent: :destroy
   has_many :receive_questions, foreign_key: "receiver_id", class_name: "Question", dependent: :destroy
 
+  # notifications
+  has_many :notifications #, as: :notifiable
 
   has_many :answers, dependent: :destroy
 

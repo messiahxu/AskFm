@@ -19,4 +19,13 @@ class Question < ActiveRecord::Base
   #belongs_to :sender, class_name: "User", foreign_key: "user_id"
   #belongs_to :receiver, class_name: "User"
   has_one :answer, dependent: :destroy
+  has_one :notification, as: :notifiable
+
+  after_create :send_notification
+
+  private
+    def send_notification
+      #puts "self = #{self}, self.class = #{self.class}"
+      self.create_notification(user_id: self.receiver_id)
+    end
 end

@@ -26,6 +26,15 @@ header {
         height: 40px;
         width: 70px;
         text-align: center;
+        .notification {
+          background-color: #999999;
+          padding: 2px 6px;
+          border-radius: 2px;
+          font-weight: bold;
+        }
+        .unread {
+          background-color: #C21B1B;
+        }
         a {
           color: #ffffff;
         }
