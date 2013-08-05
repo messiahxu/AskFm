@@ -6,6 +6,7 @@ class StaticPagesController < ApplicationController
       feeds
       render :timeline
     end
+    @signuped_users = User.order(created_at: :desc).limit(10)
   end
 
   def help

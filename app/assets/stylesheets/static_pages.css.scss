@@ -2,6 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.signup_screen {
+  .signup_box{
+    display: block;
+    margin: 125px 0;
+    .signup {
+      font-weight: bold;
+    }
+  }
+}
+.signuped_users {
+  margin-top: 10px;
+  strong {
+    display: block;
+  }
+}
 .timeline {
   .answer {
     display: block;

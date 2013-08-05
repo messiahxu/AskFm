@@ -1,7 +1,13 @@
-%h1 才不是首页呢
- 
+.signup_screen
+  .signup_box
+    %h1 问与答
+    %p= link_to "注册吧", signup_path, class: "button button-large signup"
+  
+  不想注册？先看看别人怎么玩儿也好啦。
+  = link_to "最近回答", latest_path
 
-%p= link_to "注册吧", signup_path, class: "button button-large"
-
-不想注册？先看看别人怎么玩儿也好啦。
-= link_to "最近回答", latest_path
+.signuped_users 
+  %strong 已注册用户
+  .users-list
+    - @signuped_users.each do |user|
+      = link_to gravatar_for(user), user
