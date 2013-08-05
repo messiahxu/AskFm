@@ -1,26 +1,24 @@
-//%h1 Profile
-
-.profile
-  .private
-    = gravatar_for @user
-
-  .desc
-    .info
-      .name= link_to @user.name, @user
-      //.email= @user.email
-      .bio= @user.bio
-
-    .statistic
-      %a.box{href: followers_user_path(@user)}
-        %span.counter#followers= @user.followers.count 
-        %span= "粉丝"
-      %a.box{href: following_user_path(@user)}
-        %span.counter= @user.followed_users.count
-        %span= "关注"
-      %a.box{href: user_path(@user)}
-        %span.counter= @user.answers.count
-        %span= "回答"
-      = render 'follow_form' if signed_in? && current_user != @user
+//.profile .private
+//    = gravatar_for @user
+//
+//  .desc
+//    .info
+//      .name= link_to @user.name, @user
+//      //.email= @user.email
+//      .bio= @user.bio
+//
+//    .statistic
+//      %a.box{href: followers_user_path(@user)}
+//        %span.counter#followers= @user.followers.count 
+//        %span= "粉丝"
+//      %a.box{href: following_user_path(@user)}
+//        %span.counter= @user.followed_users.count
+//        %span= "关注"
+//      %a.box{href: user_path(@user)}
+//        %span.counter= @user.answers.count
+//        %span= "回答"
+//      = render 'follow_form' if signed_in? && current_user != @user
+= render 'user'
 
 
 - if signed_in?
@@ -36,9 +34,5 @@
   %strong 回答
   .answers
     - @answers.each do |answer|
-      .answer
-        .question_content= answer.question.content
-        = link_to owner_of(answer.question).name, user_path(owner_of(answer.question))
-        .answer_content= answer.content
-        .date= time_ago_in_words answer.created_at
+      = render partial: 'answers/answer', locals: { answer: answer }
 
