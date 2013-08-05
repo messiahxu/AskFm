@@ -1,0 +1,20 @@
+.profile
+  .private
+    = gravatar_for @user
+
+  .desc
+    .info
+      .name= link_to @user.name, @user
+      .bio= @user.bio
+
+    .statistic
+      %a.box{href: followers_user_path(@user)}
+        %span.counter#followers= @user.followers.count 
+        %span= "粉丝"
+      %a.box{href: following_user_path(@user)}
+        %span.counter= @user.followed_users.count
+        %span= "关注"
+      %a.box{href: user_path(@user)}
+        %span.counter= @user.answers.count
+        %span= "回答"
+      = render 'follow_form' if signed_in? && current_user != @user

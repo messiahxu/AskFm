@@ -5,4 +5,14 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include UsersHelper
   include QuestionsHelper
+
+  before_action :count_unread_notification
+
+  private
+    def count_unread_notification
+      if signed_in?
+        @unread_count = current_user.notifications.where(unread: true).count
+      end
+    end
+
 end

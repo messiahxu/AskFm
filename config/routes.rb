@@ -14,9 +14,15 @@ AskFm::Application.routes.draw do
     member do
       get :following, :followers
     end
-    resources :questions, only: [:create]
-    # get "/need-to-answer", to: "questions#need_to_answer"
+    resources :questions, only: [:create] do
+      resources :notifications, only: [:create]
+    end
+    resources :answers, only: [:show] do
+      resources :notifications, only: [:create]
+    end
   end
+
+  resources :notifications, only: [:index]
 
   resources :relationships, only: [:create, :destroy]
 

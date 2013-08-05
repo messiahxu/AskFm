@@ -2,14 +2,13 @@
   %nav
     = link_to "ask.fm", root_path, class: "logo"
     %ul.pull_right
+      - if signed_in?
+        %li= link_to @unread_count, notifications_path, class: "notification #{'unread' if @unread_count != 0}"
       %li= link_to "首页", root_path
       %li= link_to "帮助", help_path
       %li= link_to "关于", about_path
       - if signed_in?
         %li= link_to "Users", users_path
-        //%li= link_to "Questions", questions_path
-        //%li= link_to "NeedToAnswer", need_to_answer_path
-        //%li= link_to "Sign out", signout_path, method: :delete
         %li.toggle_drop_down
           %a{href: "#", title: current_user.name}= current_user.name.size>3 ? current_user.name[0...3]+'...' : current_user.name
           %ul.drop_down

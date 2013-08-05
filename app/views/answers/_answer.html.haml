@@ -1,0 +1,11 @@
+.answer
+  //- unless controller.controller_name == "answers"
+  = link_to gravatar_for(answer.user), user_path(answer.user)
+  .box
+    .content
+      .question_content= answer.question.content
+      = link_to answer.question.user.name, user_path(answer.question.user)
+      .answer_content= answer.content
+      .date= time_ago_in_words answer.created_at
+      - if controller.controller_name == "static_pages" 
+        = link_to answer.user.name, user_path(answer.user)

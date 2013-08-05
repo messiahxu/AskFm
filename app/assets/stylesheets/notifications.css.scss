@@ -1,0 +1,42 @@
+// Place all the styles related to the Notifications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.notifications {
+  margin: 10px 0;
+  .notification {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 3px;
+    border-top: solid 5px #1B4EB9;
+    .title {
+      margin-bottom: 5px;
+    }
+    .content {
+      display: inline;
+      font-weight: bold;
+      font-size: 18px;
+      margin-right: 10px;
+    }
+    a.name {
+      //display: inline;
+    }
+    .date {
+      //display: inline;
+      color: #808080;
+      font-size: 12px;
+    }
+    .answer {
+      .box {
+        width: 840px;
+        .answer_content {
+          font-weight: normal;
+        }
+      }
+    }
+  }
+  .unread {
+    //border-color: #48AC0F;
+    border-color: #1abc9c;
+  }
+}

@@ -1,0 +1,12 @@
+%h1 提醒
+
+.notifications
+  - @notifications.each do |notification|
+    %div{class: "notification #{'unread' if notification.unread}"}
+      - if notification.notifiable_type == "Question"
+        //- question = question_of(notification)
+        .title 收到问题
+        = render partial: 'questions/question', locals: { question: question_of(notification) }
+      - else
+        .title 收到回答
+        = render partial: 'answers/answer', locals: { answer: answer_of(notification) }

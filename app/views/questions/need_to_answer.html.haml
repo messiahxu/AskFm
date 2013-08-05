@@ -2,8 +2,9 @@
 
 .need_to_answer
   - @receive_questions.each do |question|
-    .question
-      .content= question.content
-      = link_to owner_of(question).name, user_path(owner_of(question)), class: "name"
-      .date= time_ago_in_words question.created_at
-      = link_to "回答", reply_path(question), class: "reply"
+    //.question
+    //  .content= question.content
+    //  = link_to owner_of(question).name, user_path(owner_of(question)), class: "name"
+    //  .date= time_ago_in_words question.created_at
+    //  = link_to "回答", reply_path(question), class: "reply"
+    = render partial: 'question', locals: { question: question }
