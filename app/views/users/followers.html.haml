@@ -2,7 +2,7 @@
 
 .followed_users_or_followers
   - @followers.each do |user|
-    .user
+    %div{class: 'user', :'data-user-id' => user.id }
       %a{href: user_path(user)}
         = gravatar_for user
       .desc
@@ -13,9 +13,9 @@
         - if signed_in?
           .follow_form
             - if current_user == user
-              %button.follow.nothing 这是你自己
+              %button.follow{disabled: :disabled} 这是你自己
             - else
               - if current_user.following?(user)
-                %button.unfollow 取消关注
+                %button.unfollow{:'data-user-id' => user.id, :'data-relationship-id' => relationship_id(user) } 取消关注
               - else
-                %button.follow 关注
+                %button.follow{:'data-user-id' => user.id } 关注

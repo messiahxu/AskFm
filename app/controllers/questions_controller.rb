@@ -7,7 +7,6 @@ class QuestionsController < ApplicationController
 
   def need_to_answer
     # 这个 action 是列出用户收到的问题
-    #@questions = Question.where(receiver_id: current_user.id, replied: false)
     @receive_questions = current_user.receive_questions.where(replied: false)
   end
 
@@ -20,7 +19,6 @@ class QuestionsController < ApplicationController
   end
 
   def reply
-    # @user = current_user
     @question = Question.find(params[:id])
     if @question.replied?
       flash[:notice] = "那个问题已经回答过咯"
