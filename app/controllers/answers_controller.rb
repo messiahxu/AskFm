@@ -14,7 +14,6 @@ class AnswersController < ApplicationController
       redirect_to need_to_answer_path
     else
       flash[:notice] = "不知道为什么，答案提交失败了……"
-      #redirect_to reply_path(@question)
       render "questions/reply"
     end
   end

@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include UsersHelper
   include QuestionsHelper
+  include RelationshipsHelper
 
   before_action :count_unread_notification
 

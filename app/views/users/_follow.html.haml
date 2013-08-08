@@ -1,3 +1,4 @@
-= form_for current_user.relationships.new(followed_id: @user.id), remote: true do |f|
-  = f.hidden_field :followed_id
-  = f.submit "关注", class: "follow"
+.follow_form
+  = form_for current_user.relationships.new(followed_id: user.id), remote: true do |f|
+    = f.hidden_field :followed_id
+    = f.submit "关注", class: "follow"

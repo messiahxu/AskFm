@@ -25,7 +25,6 @@ class Question < ActiveRecord::Base
 
   private
     def send_notification
-      #puts "self = #{self}, self.class = #{self.class}"
       self.create_notification(user_id: self.receiver_id)
     end
 end

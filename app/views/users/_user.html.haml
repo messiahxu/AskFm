@@ -1,20 +1,29 @@
 .profile
   .private
-    = gravatar_for @user
+    = gravatar_for user
 
   .desc
     .info
-      .name= link_to @user.name, @user
-      .bio= @user.bio
+      .name= link_to user.name, user
+      .bio= user.bio
 
     .statistic
-      %a.box{href: followers_user_path(@user)}
-        %span.counter#followers= @user.followers.count 
+      %a.box{href: followers_user_path(user)}
+        %span.counter#followers= user.followers.count 
         %span= "粉丝"
-      %a.box{href: following_user_path(@user)}
-        %span.counter= @user.followed_users.count
+      %a.box{href: following_user_path(user)}
+        %span.counter= user.followed_users.count
         %span= "关注"
-      %a.box{href: user_path(@user)}
-        %span.counter= @user.answers.count
+      %a.box{href: user_path(user)}
+        %span.counter= user.answers.count
         %span= "回答"
-      = render 'follow_form' if signed_in? && current_user != @user
+      - if signed_in?
+        .user
+          .follow_form
+            - if current_user == user
+              %button.follow{disabled: :disabled} 这是你自己
+            - else
+              - if current_user.following?(user)
+                %button.unfollow{:'data-user-id' => user.id, :'data-relationship-id' => relationship_id(user) } 取消关注
+              - else
+                %button.follow{:'data-user-id' => user.id } 关注

@@ -1,2 +1,11 @@
-$("#follow_form").html("<%= escape_javascript(render('users/unfollow')) %>")
-$("#followers").html("<%= @user.followers.count %>")
+if ( $(".profile").length ) {
+  $("#follow_form").html(
+      "<%= escape_javascript(
+                      render( partial: 'users/unfollow', locals: { user: @user})
+    ) %>"
+  )
+}
+
+if ( $("#followers").length ) {
+  $("#followers").html("<%= @user.followers.count %>")
+}

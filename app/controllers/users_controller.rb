@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    #@answers = Answer.where(user_id: params[:id])
+    @question = @user.questions.new
     @answers = @user.answers
   end
 
@@ -71,9 +71,6 @@ class UsersController < ApplicationController
   
 
   def correct_user?
-    #unless current_user?
-    #  redirect_to root_path, notice: "不要干坏事哦"
-    #end
     # 只有管理员可以删除用户，当前用户只可以删除自己，
     unless current_user? || current_user.admin?
       redirect_to root_path, notice: "不要干坏事哦"
