@@ -13,7 +13,10 @@ $(document).ready ->
       data:
         user_id: user_id
       success: (data) ->
-        _this.text("取消关注").attr("data-relationship-id", data["relationship-id"]).removeClass("follow").addClass "unfollow"
+        _this.text("取消关注").attr("data-relationship-id", data["relationship-id"]).removeClass("follow").addClass("unfollow")
+        if $("#followers").length
+          old = $("#followers").text()
+          $("#followers").text(parseInt(old) + 1)
     )
 
   $(".user").on "click", ".unfollow", ->
@@ -28,7 +31,10 @@ $(document).ready ->
         user_id: user_id
         _method: "delete"
       success: ->
-        _this.text("关注").removeAttr("data-relationship-id").removeClass("unfollow").addClass "follow"
+        _this.text("关注").removeAttr("data-relationship-id").removeClass("unfollow").addClass("follow")
+        if $("#followers").length
+          old = $("#followers").text()
+          $("#followers").text(parseInt(old) - 1)
     )
 
 
